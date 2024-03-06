@@ -1,6 +1,6 @@
 ﻿namespace Cars.Application.Contracts.Persistence
 {
-    public interface ICarRepository : IGenericRepository<ICarRepository>
+    public interface ICarRepository : IGenericRepository<Car>
     {
     }
 }

@@ -10,12 +10,12 @@ namespace Cars.Application.Contracts.Persistence
         Task<T> GetFirstOrDefaultAsync(Expression<Func<T, bool>> filter, string? includeProperties = null);
         Task<List<T>> GetAllAsync(string? includeProperties = null);
         Task<List<T>> GetAllAsync(Expression<Func<T, bool>> filter, string? includeProperties = null);
-        Task Add(T entity);
-        Task AddRange(IEnumerable<T> entities);
-        Task Update(T entity);
-        Task Delete(T entity);
-        Task DeleteRange(IEnumerable<T> entities);
-        Task DeleteAll(IEnumerable<T> entities);
+        Task AddAsync(T entity);
+        Task AddRangeAsync(IEnumerable<T> entities);
+        Task UpdateAsync(T entity);
+        Task DeleteAsync(T entity);
+        Task DeleteRangeAsync(IEnumerable<T> entities);
+        Task DeleteAllAsync(IEnumerable<T> entities);
 
     }
 }
