@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cars.Shared", "Cars.Shared\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cars.Domain", "Cars.Domain\Cars.Domain.csproj", "{2BDE15AD-8BBE-4CFB-84AB-5D61BEB47461}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cars.Application", "Cars.Application\Cars.Application.csproj", "{4E0D8F19-A8F5-4172-9ED1-6BDB069DE64B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2BDE15AD-8BBE-4CFB-84AB-5D61BEB47461}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BDE15AD-8BBE-4CFB-84AB-5D61BEB47461}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BDE15AD-8BBE-4CFB-84AB-5D61BEB47461}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E0D8F19-A8F5-4172-9ED1-6BDB069DE64B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E0D8F19-A8F5-4172-9ED1-6BDB069DE64B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E0D8F19-A8F5-4172-9ED1-6BDB069DE64B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E0D8F19-A8F5-4172-9ED1-6BDB069DE64B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +51,7 @@ Global
 		{444A3B0B-70FB-4A1F-A7D5-7CB5E91E81ED} = {C6338F0D-1B35-488B-ACA1-E4D8DD0D51D5}
 		{6944D32B-7DEE-4B16-8A5F-839400BCA050} = {444A3B0B-70FB-4A1F-A7D5-7CB5E91E81ED}
 		{2BDE15AD-8BBE-4CFB-84AB-5D61BEB47461} = {47F2F60D-D7AF-4553-B575-60C54449EFE5}
+		{4E0D8F19-A8F5-4172-9ED1-6BDB069DE64B} = {47F2F60D-D7AF-4553-B575-60C54449EFE5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1003E4AF-BB51-480D-AD91-3B7C0DDBBC7A}
