@@ -18,4 +18,10 @@
     <ProjectReference Include="..\Cars.Shared\Cars.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Command\" />
+    <Folder Include="Features\Queries\GetCar\" />
+    <Folder Include="Features\Queries\GetAllCars\" />
+  </ItemGroup>
+
 </Project>
