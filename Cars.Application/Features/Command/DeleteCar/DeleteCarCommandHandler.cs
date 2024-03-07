@@ -11,7 +11,7 @@ namespace Cars.Application.Features.Command.DeleteCar
     public class DeleteCarCommandHandler : IRequestHandler<DeleteCarCommand, Unit>
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork
+        private readonly IUnitOfWork _unitOfWork;
         public DeleteCarCommandHandler(IMapper mapper,IUnitOfWork unitOfWork)
         {
             _mapper = mapper;   
