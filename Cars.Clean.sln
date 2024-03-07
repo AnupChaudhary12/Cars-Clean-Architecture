@@ -15,15 +15,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{A37762E3-2B58-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{444A3B0B-70FB-4A1F-A7D5-7CB5E91E81ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cars.Shared", "Cars.Shared\Cars.Shared.csproj", "{6944D32B-7DEE-4B16-8A5F-839400BCA050}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cars.Shared", "Cars.Shared\Cars.Shared.csproj", "{6944D32B-7DEE-4B16-8A5F-839400BCA050}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cars.Domain", "Cars.Domain\Cars.Domain.csproj", "{2BDE15AD-8BBE-4CFB-84AB-5D61BEB47461}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cars.Domain", "Cars.Domain\Cars.Domain.csproj", "{2BDE15AD-8BBE-4CFB-84AB-5D61BEB47461}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cars.Application", "Cars.Application\Cars.Application.csproj", "{4E0D8F19-A8F5-4172-9ED1-6BDB069DE64B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cars.Application", "Cars.Application\Cars.Application.csproj", "{4E0D8F19-A8F5-4172-9ED1-6BDB069DE64B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cars.Persistence", "Cars.Persistence\Cars.Persistence.csproj", "{FB8E56DD-DBCF-48E6-8842-9F50C2FDEA6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cars.Persistence", "Cars.Persistence\Cars.Persistence.csproj", "{FB8E56DD-DBCF-48E6-8842-9F50C2FDEA6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cars.Infrastructure", "Cars.Infrastructure\Cars.Infrastructure.csproj", "{C26A96E7-6E6B-4AE3-A63E-8F7F68DDCFE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cars.Infrastructure", "Cars.Infrastructure\Cars.Infrastructure.csproj", "{C26A96E7-6E6B-4AE3-A63E-8F7F68DDCFE0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cars.Api", "Cars.Api\Cars.Api.csproj", "{702C3417-9C2C-4AC8-993A-7E2C0D560119}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cars.UI", "Cars.UI\Cars.UI.csproj", "{2FAD91D6-15DB-409D-A4DE-A73BFE45C18A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{C26A96E7-6E6B-4AE3-A63E-8F7F68DDCFE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C26A96E7-6E6B-4AE3-A63E-8F7F68DDCFE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C26A96E7-6E6B-4AE3-A63E-8F7F68DDCFE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{702C3417-9C2C-4AC8-993A-7E2C0D560119}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{702C3417-9C2C-4AC8-993A-7E2C0D560119}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{702C3417-9C2C-4AC8-993A-7E2C0D560119}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{702C3417-9C2C-4AC8-993A-7E2C0D560119}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FAD91D6-15DB-409D-A4DE-A73BFE45C18A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FAD91D6-15DB-409D-A4DE-A73BFE45C18A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FAD91D6-15DB-409D-A4DE-A73BFE45C18A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FAD91D6-15DB-409D-A4DE-A73BFE45C18A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +78,8 @@ Global
 		{4E0D8F19-A8F5-4172-9ED1-6BDB069DE64B} = {47F2F60D-D7AF-4553-B575-60C54449EFE5}
 		{FB8E56DD-DBCF-48E6-8842-9F50C2FDEA6B} = {B6915C6C-9E84-4DA0-ACCD-29DD724D0252}
 		{C26A96E7-6E6B-4AE3-A63E-8F7F68DDCFE0} = {B6915C6C-9E84-4DA0-ACCD-29DD724D0252}
+		{702C3417-9C2C-4AC8-993A-7E2C0D560119} = {0ED4BD85-6395-48E1-BBA6-02C6398E126F}
+		{2FAD91D6-15DB-409D-A4DE-A73BFE45C18A} = {A37762E3-2B58-4BF7-AA1F-9EADABAF8D8F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1003E4AF-BB51-480D-AD91-3B7C0DDBBC7A}
