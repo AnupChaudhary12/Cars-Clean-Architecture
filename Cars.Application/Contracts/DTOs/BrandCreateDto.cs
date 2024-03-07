@@ -8,5 +8,7 @@ namespace Cars.Application.Contracts.DTOs
 {
     public class BrandCreateDto
     {
+        public string BrandName { get; set; } = default!;
+        public string Country { get; set; } = default!;
     }
 }

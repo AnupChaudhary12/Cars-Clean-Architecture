@@ -10,7 +10,7 @@ namespace Cars.Application.Validators.Cars
         {
             RuleFor(p=>p.CarModel).NotEmpty().WithMessage("Car Model is required")
                 .NotNull()
-                .MustAsync(UniqueModelName)
+                .MustAsync(UniqueModelName).WithMessage("Car Model already exists")
                 .MaximumLength(50).WithMessage("Car Model must not exceed 50 characters");
             RuleFor(p=>p.Color).NotEmpty().WithMessage("Color is required")
                 .NotNull()

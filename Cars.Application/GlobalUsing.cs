@@ -5,3 +5,4 @@ global using System.Reflection;
 global using AutoMapper;
 global using Cars.Domain.Entities;
 global using Cars.Application.Contracts.DTOs;
+global using FluentValidation;
