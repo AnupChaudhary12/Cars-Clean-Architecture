@@ -19,7 +19,7 @@ namespace Cars.Application.Features.Command.CreateCar
             var validatorResult = await validator.ValidateAsync(request.CreateCarsDto);
             if (!validatorResult.IsValid)
             {
-                throw new ValidationException("Invalid car", (IEnumerable<FluentValidation.Results.ValidationFailure>)validatorResult);
+                throw new ValidationExceptions("Invalid car", validatorResult);
             }
 
 

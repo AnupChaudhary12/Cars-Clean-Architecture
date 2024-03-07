@@ -78,7 +78,8 @@ namespace Cars.Persistence.Repositories
 
         public  Task UpdateAsync(T entity)
         {
-             dbSet.Update(entity);
+             dbSet.Attach(entity);
+            _dbContext.Entry(entity).State = EntityState.Modified;
             return Task.CompletedTask;
         }
     }

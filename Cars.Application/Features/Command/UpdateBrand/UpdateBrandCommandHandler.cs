@@ -17,16 +17,19 @@ namespace Cars.Application.Features.Command.UpdateBrand
             _unitOfWork = unitOfWork;   
             _mapper = mapper;
         }
+
+
         public async Task<int> Handle(UpdateBrandCommand request, CancellationToken cancellationToken)
         {
-            var brandToUpdate = await _unitOfWork.Brands.GetFirstOrDefaultAsync(b=>b.Id == request.Id);
+            var brandToUpdate = await _unitOfWork.Brands.GetFirstOrDefaultAsync(b => b.Id == request.Id);
             if (brandToUpdate == null)
             {
                 throw new BrandNotFoundException();
             }
             else
             {
-                var mappedBrand = _mapper.Map<Brand>(brandToUpdate);
+                _unitOfWork.Brands.DetachBrandEntity(brandToUpdate);
+                var mappedBrand = _mapper.Map<Brand>(request);
                 await _unitOfWork.Brands.UpdateAsync(mappedBrand);
                 await _unitOfWork.Save();
                 return mappedBrand.Id;

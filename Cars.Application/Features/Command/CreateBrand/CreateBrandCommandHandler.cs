@@ -1,5 +1,7 @@
 ﻿using Cars.Application.Contracts.Persistence;
 using Cars.Application.Validators.Brands;
+using Cars.Domain.Exceptions;
+using Microsoft.AspNetCore.Http.HttpResults;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,13 +21,13 @@ namespace Cars.Application.Features.Command.CreateBrand
         }
         public async Task<int> Handle(CreateBrandCommand request, CancellationToken cancellationToken)
         {
-            var validator = new BrandCreateDtoValidator(_unitOfWork);
-            var validatorResult = await validator.ValidateAsync(request.BrandCreateDto);
+            var validator = new CreateBrandCommandValidator(_unitOfWork);
+            var validatorResult = await validator.ValidateAsync(request);
             if (!validatorResult.IsValid)
             {
-                throw new ValidationException("Invalid Brand", (IEnumerable<FluentValidation.Results.ValidationFailure>)validatorResult);
+                throw new ValidationExceptions("Invalid Brand",validatorResult);
             }
-            var brandToCreate = _mapper.Map<Brand>(request.BrandCreateDto);
+            var brandToCreate = _mapper.Map<Brand>(request);
             await _unitOfWork.Brands.AddAsync(brandToCreate);
             await _unitOfWork.Save();
             return brandToCreate.Id;

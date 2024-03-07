@@ -12,6 +12,13 @@ namespace Cars.Persistence.Repositories
         {
             _dbContext = dbContext;
         }
+
+        public void DetachBrandEntity(Brand brand)
+        {
+            var entry = _dbContext.Entry(brand);
+            entry.State = EntityState.Detached;
+        }
+
         public async Task<bool> IsBrandNameUnique(string brandName)
         {
             return await _dbContext.Brands.AnyAsync(b => b.BrandName == brandName) == false;

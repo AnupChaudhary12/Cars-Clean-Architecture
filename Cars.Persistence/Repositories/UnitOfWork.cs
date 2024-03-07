@@ -18,8 +18,7 @@ namespace Cars.Persistence.Repositories
 
         public void Dispose()
         {
-            _dbContext.Dispose();
-            
+            _dbContext.Dispose();            
         }
 
         public async Task Save()

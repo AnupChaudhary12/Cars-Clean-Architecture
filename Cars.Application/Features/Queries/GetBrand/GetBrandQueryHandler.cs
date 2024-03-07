@@ -11,9 +11,10 @@ namespace Cars.Application.Features.Queries.GetBrand
             _mapper = mapper;
             _unitOfWork = unitOfWork;
         }
+
         public async Task<BrandGetDto> Handle(GetBrandQuery request, CancellationToken cancellationToken)
         {
-            var brand = await _unitOfWork.Brands.GetFirstOrDefaultAsync(b=>b.Id==request.Id);
+            var brand = await _unitOfWork.Brands.GetFirstOrDefaultAsync(b => b.Id == request.Id);
             return _mapper.Map<BrandGetDto>(brand);
         }
     }

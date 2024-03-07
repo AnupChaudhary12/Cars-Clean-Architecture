@@ -1,17 +1,14 @@
 ﻿using Cars.Application.Contracts.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Cars.Application.Features.Command.CreateBrand;
 
 namespace Cars.Application.Validators.Brands
 {
-    public class BrandCreateDtoValidator: AbstractValidator<BrandCreateDto>
+    public class CreateBrandCommandValidator: AbstractValidator<CreateBrandCommand>
     {
         private readonly IUnitOfWork _unitOfWork;
-        public BrandCreateDtoValidator(IUnitOfWork unitOfWork)
+        public CreateBrandCommandValidator(IUnitOfWork unitOfWork)
         {
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             RuleFor(p=>p.BrandName).NotEmpty().WithMessage("Brand Name is required")
                 .NotNull()
                 .MustAsync(IsBrandNameUnique).WithMessage("Brand Name already exists")
@@ -24,6 +21,12 @@ namespace Cars.Application.Validators.Brands
 
         private async Task<bool> IsBrandNameUnique(string brandName, CancellationToken token)
         {
+            if (_unitOfWork == null || _unitOfWork.Brands == null)
+            {
+                // Log or handle the null reference appropriately
+                return false;
+            }
+
             return await _unitOfWork.Brands.IsBrandNameUnique(brandName);
         }
     }
