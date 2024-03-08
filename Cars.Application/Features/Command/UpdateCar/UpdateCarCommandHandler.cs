@@ -20,6 +20,7 @@ namespace Cars.Application.Features.Command.UpdateCar
             {
                 throw new CarNotFoundException();
             }
+            _unitOfWork.Cars.DetachCarEntity(carToUpdate);
             var mappedCar = _mapper.Map<Car>(request);
             await _unitOfWork.Cars.UpdateAsync(mappedCar);
             await _unitOfWork.Save();

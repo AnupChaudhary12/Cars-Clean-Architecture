@@ -1,13 +1,15 @@
 ﻿
 using Cars.Application.Contracts.Persistence;
+using Cars.Application.Features.Command.CreateCar;
 
 namespace Cars.Application.Validators.Cars
 {
-    public class CarCreateDtoValidator: AbstractValidator<CarCreateDto>
+    public class CarCreateDtoValidator: AbstractValidator<CreateCarCommand>
     {
         private readonly IUnitOfWork _unitOfWork;
         public CarCreateDtoValidator(IUnitOfWork unitOfWork)
         {
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             RuleFor(p=>p.CarModel).NotEmpty().WithMessage("Car Model is required")
                 .NotNull()
                 .MustAsync(UniqueModelName).WithMessage("Car Model already exists")
@@ -28,6 +30,10 @@ namespace Cars.Application.Validators.Cars
 
         private async Task<bool> UniqueModelName(string carModel, CancellationToken token)
         {
+            if(_unitOfWork == null || _unitOfWork.Cars == null)
+            {
+                return false;
+            }
             return await _unitOfWork.Cars.IsCarModelUnique(carModel);
         }
     }

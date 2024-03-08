@@ -5,6 +5,7 @@ using Cars.Application.Features.Command.DeleteBrand;
 using Cars.Application.Features.Command.UpdateBrand;
 using Cars.Application.Features.Queries.GetAllBrand;
 using Cars.Application.Features.Queries.GetBrand;
+using Cars.Application.Features.Queries.ListCarsByBrand;
 using MediatR;
 
 namespace Cars.Api.ApiCodes.Implementations
@@ -33,6 +34,12 @@ namespace Cars.Api.ApiCodes.Implementations
         {
             var brandById= await mediator.Send(new GetBrandQuery(id));
             return TypedResults.Ok(brandById);
+        }
+
+        public async Task<IResult> GetCarsByBrandId(IMediator mediator, int brandId)
+        {
+            var listOfCars = await mediator.Send(new GetCarsByBrandQuery { Id=brandId});
+            return TypedResults.Ok(listOfCars);
         }
 
         public async Task<IResult> UpdateBrand(IMediator mediator,UpdateBrandCommand updateBrand)

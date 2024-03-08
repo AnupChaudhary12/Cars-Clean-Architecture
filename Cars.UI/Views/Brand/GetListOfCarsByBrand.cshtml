@@ -1,0 +1,91 @@
+﻿@model List<Cars.UI.Models.ViewModels.CarWithBrandVM>
+
+@{
+    ViewData["Title"] = "List of Cars By Brand Id";
+}
+
+<h2>@ViewData["Title"]</h2>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .button-link {
+        display: inline-block;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+        .button-link:hover {
+            background-color: #0056b3;
+            color: black;
+        }
+</style>
+
+<form method="post" asp-controller="Brand" asp-action="GetListOfCarsByBrand">
+    <label for="brandId">Enter Brand Id:</label>
+    <input type="text" id="brandId" name="id" required />
+    <button type="submit">Get List of Cars</button>
+</form>
+<br />
+
+@if (Model.Any())
+{
+    if (ViewData["Cars"] != null)
+    {
+        var cars = Model; // Use the ViewModel instead of ViewData["Cars"]
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Car Model</th>
+                    <th>Color</th>
+                    <th>Tyre Count</th>
+                    <th>Number Plate</th>
+                    <th>Brand Id</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var car in cars)
+                {
+                    <tr>
+                        <td>@car.CarId</td>
+                        <td>@car.CarModel</td>
+                        <td>@car.Color</td>
+                        <td>@car.TyreCount</td>
+                        <td>@car.NumberPlate</td>
+                        <td>@car.BrandId</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No cars found for the brand id </p>
+    }
+}
+<br />
+                <p>
+                    <a asp-action="Index" class="btn btn-secondary">Back to Homepage</a>
+                </p>
+                <br />
+                <p>
+					<a asp-controller="Brand" asp-action="GetAllBrands" class="btn btn-secondary">Back to Brands List</a>
+                    </p>

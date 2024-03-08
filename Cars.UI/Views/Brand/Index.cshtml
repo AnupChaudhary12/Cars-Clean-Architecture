@@ -1,0 +1,39 @@
+﻿
+@{
+	ViewData["Title"] = "HomePage";
+}
+<h2>@ViewData["Title"]</h2>
+<style>
+    .button-link {
+        display: inline-block;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+        .button-link:hover {
+            background-color: #0056b3;
+            color: black;
+        }
+</style>
+
+<p>
+	<a asp-action="AddBrand" class="button-link">Add New Brand</a>
+</p>
+<p>
+	<a asp-action="GetAllBrands" class="button-link">Get All Brands</a>
+</p>
+
+<p>
+    <a asp-controller="Car" asp-action="GetAllCars" class="btn btn-secondary">Get All Cars</a>
+</p>
+<p>
+    <a asp-controller="Car" asp-action="AddCar" class="btn btn-secondary">Add New Car</a>
+</p>
+
+
+

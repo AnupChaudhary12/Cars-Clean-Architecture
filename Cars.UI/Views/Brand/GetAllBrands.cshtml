@@ -1,0 +1,89 @@
+﻿@model List<Cars.Application.Contracts.DTOs.BrandGetDto>;
+@{
+	ViewData["Title"] = "GetAllBrands";
+}
+<h2>
+	@ViewData["Title"]
+</h2>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .button-link {
+        display: inline-block;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+        .button-link:hover {
+            background-color: #0056b3;
+            color: black;
+        }
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Brand Name</th>
+            <th>Country</th>
+            <th>Brand Details</th>
+            <th>Update Brand</th>
+            <th>Delete Brand</th>
+        </tr>
+    </thead>
+    <tbody>
+		@foreach (var brand in Model)
+		{
+			<tr>
+                <td>@brand.Id</td>
+				<td>@brand.BrandName</td>
+				<td>@brand.Country</td>
+                <td>
+                    <a href="@Url.Action("GetBrandById","Brand",new{id=brand.Id})">Get Brand Details</a>
+                </td>
+                <td>
+                    <a href="@Url.Action("UpdateBrand","Brand",new{id=brand.Id})"> Update Brand</a>
+                </td>
+                <td>
+                    <a href="@Url.Action("DeleteBrand","Brand",new{id=brand.Id})"> Delete Brand</a>
+                </td>
+			</tr>
+		}
+        </tbody>
+</table>
+<br />
+<p>
+    <a asp-action="Index" class="btn btn-secondary">Back to Homepage</a>
+</p>
+<br />
+<p>
+    <a asp-controller="Brand" asp-action="GetListOfCarsByBrand" asp-route-id="@Model.FirstOrDefault()?.Id" class="btn btn-secondary">Get List of Cars By Brand Id</a>
+</p>
+
+                    <br/>
+                 <p>
+						<a asp-controller="Brand" asp-action="AddBrand" class="btn btn-outline-secondary">Create New Brand</a>
+                 </p>
+                 <br/>
+                 <p>
+                     <a asp-controller="Car" asp-action="GetAllCars" class="btn btn-outline-secondary">Get All Cars</a>
+                     </p>

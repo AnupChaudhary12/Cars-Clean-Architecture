@@ -10,7 +10,7 @@ namespace Cars.Domain.Entities
         public string Country { get; set; } = default!; 
         
         // Navigation property for the related entities e.g. Car for 1 to many relationship
-        public List<Car>? Cars { get; set; } 
+        public ICollection<Car>? Cars { get; set; } 
 
     }
 }

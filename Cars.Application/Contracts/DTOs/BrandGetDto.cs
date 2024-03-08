@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,11 @@ namespace Cars.Application.Contracts.DTOs
 {
     public class BrandGetDto
     {
-        [JsonPropertyName("id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
-        [JsonPropertyName("modelName")]
-        public string ModelName { get; set; } = default!;
-        [JsonPropertyName("country")]
+        [JsonProperty("brandName")]
+        public string BrandName { get; set; } = default!;
+        [JsonProperty("country")]
         public string Country { get; set; } = default!;
     }
 }

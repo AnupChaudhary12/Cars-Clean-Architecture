@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Cars.Application.Contracts.DTOs.BrandGetDto;
+
+@{
+	ViewData["Title"] = "GetBrandById";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .button-link {
+        display: inline-block;
+        margin : 10px,0;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+        .button-link:hover {
+            background-color: #0056b3;
+            color: black;
+        }
+</style>
+
+
+<form method="post" asp-controller="Brand" asp-action="GetBrandById">
+	<label for=" brandId">Enter Brand Id:</label>
+	<input type="text" id="brandId" name="id" required />
+	<button type="submit">Get Brand Details</button>
+</form>
+<br />
+@if(Model != null)
+{
+	<table>
+		<tr>
+			<th>Brand Id</th>
+			<th>Brand Name</th>
+			<th>Country</th>
+		</tr>
+		<tr>
+			<td>@Model.Id</td>
+			<td>@Model.BrandName</td>
+			<td>@Model.Country</td>
+		</tr>
+	</table>
+}
+<br />
+<p>
+    <a asp-action="GetAllBrands" class="button-link">Back to Brand List</a>
+</p>
+<p>
+    <a asp-action="Index" class="btn btn-primary">Back to Home</a>
+</p>

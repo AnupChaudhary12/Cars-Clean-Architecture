@@ -7,9 +7,9 @@ namespace Cars.Application.Mapping_Profile
     {
         public CarProfile()
         {
-            CreateMap<CarGetDto, Car>().ReverseMap();
-            CreateMap<Car,CarCreateDto>().ReverseMap(); 
-            CreateMap<Car, UpdateCarCommand>().ReverseMap();
+            CreateMap<Car,CarGetDto>().ReverseMap();
+            CreateMap<CreateCarCommand,Car>().ReverseMap();
+            CreateMap<UpdateCarCommand,Car>().ReverseMap();
         }
     }
 }

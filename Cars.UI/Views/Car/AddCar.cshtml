@@ -1,0 +1,60 @@
+﻿@model Cars.Application.Contracts.DTOs.CarGetDto;
+
+@{
+	ViewData["Title"] = "AddCar";
+}
+<h2>
+	@ViewData["Title"]
+</h2>
+<br />
+
+<form method="post" asp-controller="Car" asp-action="AddCar">
+	<div asp-validation-summary="ModelOnly" class=" text-danger"></div>
+
+	<div class=" form-group">
+		<label asp-for="CarModel">Car Name:</label>
+		<input asp-for="CarModel" class="form-control" />
+		<span asp-validation-for="CarModel" class="text-danger"></span>
+	</div>
+
+	<div class=" form-group">
+		<label asp-for="Color">Color:</label>
+		<input asp-for="Color" class="form-control" />
+		<span asp-validation-for="Color" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="TyreCount">Tyre Count:</label>
+		<input asp-for="TyreCount" class="form-control" />
+		<span asp-validation-for="TyreCount" class="text-danger"></span>
+	</div>
+	<div class ="form-group">
+		<label asp-for="NumberPlate">Number Plate:</label>
+		<input asp-for="NumberPlate" class="form-control" />
+		<span asp-validation-for="NumberPlate" class="text-danger"></span>
+	</div>
+	<div class=" form-group">
+		<label asp-for="BrandId">Brand Id:</label>
+		<select class="form-control" id="brandId" name="BrandId" required">
+			@if (ViewBag.Brands != null)
+			{
+				foreach (var brand in ViewBag.Brands)
+				{
+					<option value="@brand.Id">@brand.Id</option>
+				}
+			}
+			else
+			{
+				<option value="">Brands not available</option>
+			}
+		</select>
+		<span asp-validation-for="BrandId" class="text-danger"></span>
+	</div>
+	<br />
+	<button type="submit" class="btn btn-primary">Add Car</button>
+</form>
+<br />
+<p>
+	<a asp-controller="Brand" asp-action="Index" class="btn btn-secondary">Back to Homepage</a> ||
+	<a asp-action="GetAllCars" class="btn btn-secondary">Get All Cars</a> ||
+
+</p>

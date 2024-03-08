@@ -1,0 +1,63 @@
+﻿@model Cars.Application.Contracts.DTOs.CarGetDto;
+
+@{
+		ViewData["Title"] = "GetCarById";
+}
+<h2>
+	@ViewData["Title"]
+</h2>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<form method="post" asp-controller="Car" asp-action="GetCarById">
+    <label for=" brandId">Enter Car Id:</label>
+    <input type="text" id="carId" name="id" required />
+    <button type="submit">Get Brand Details</button>
+</form>
+<br />
+@if(Model != null)
+{
+	<table>
+		<tr>
+			<th>Car Id</th>
+			<th>Car Model Name</th>
+			<th>Color</th>
+			<th>Tyre Count</th>
+			<th>Number Plate</th>
+			<th>Brand Id</th>
+		</tr>
+		<tr>
+			<td>@Model.Id</td>
+			<td>@Model.CarModel</td>
+			<td>@Model.Color</td>
+			<td>@Model.TyreCount</td>
+			<td>@Model.NumberPlate</td>
+			<td>@Model.BrandId</td>
+		</tr>
+	</table>
+
+	<br />
+	<p>
+		<a asp-controller="Brand" asp-action="Index" class="btn btn-secondary">Back To homepage</a>
+	</p>
+	<br/>
+	<p>
+		<a asp-controller="Car" asp-action="GetAllCars" class="btn btn-secondary">Back To Car List</a>
+	</p>
+
+}

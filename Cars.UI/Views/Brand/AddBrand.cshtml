@@ -1,0 +1,30 @@
+﻿@model Cars.Application.Contracts.DTOs.BrandGetDto;
+
+@{
+	ViewData["Title"] = "AddBrand";
+}
+<h2>
+	@ViewData["Title"]
+</h2>
+
+<form method="post" asp-controller="Brand" asp-action="AddBrand">
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+	<div class="form-group">
+		<label asp-for="BrandName">Brand Name:</label>
+		<input asp-for="BrandName" class="form-control" />
+		<span asp-validation-for="BrandName" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="Country">Country:</label>
+		<input asp-for="Country" class="form-control" />
+		<span asp-validation-for="Country" class="text-danger"></span>
+	</div>
+	<br/>
+	<button type="submit" class="btn btn-primary">Add Brand</button>
+</form>
+<br/>
+<p>
+	<a asp-action="Index" class="btn btn-secondary">Back to Homepage</a> ||
+	<a asp-action="GetAllBrands" class="btn btn-secondary">Get All Brands</a>
+</p>

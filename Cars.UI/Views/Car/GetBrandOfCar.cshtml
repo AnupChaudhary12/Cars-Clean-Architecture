@@ -1,0 +1,61 @@
+﻿@model Cars.Application.Contracts.DTOs.BrandGetDto;
+@{
+	ViewData["Title"] = "Get Brand Of Car";
+}
+<h2>@ViewData["Title"]</h2>
+<br />
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<form method="post" asp-controller="Car" asp-action="GetBrandOfCar">
+	<label for="id">Enter Car Id:</label>
+	<input type="text" id="id" name="id" required />
+	<button type="submit">Get Details Of Brand</button>
+</form>
+
+<br />
+
+@if (Model != null)
+{
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Brand Name</th>
+				<th>Country</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>@Model.Id</td>
+				<td>@Model.BrandName</td>
+				<td>@Model.Country</td>
+			</tr>
+		</tbody>
+	</table>
+}
+else
+{
+	<p>No Brand Details Available</p>
+}
+<br/>
+
+<p>
+	<a asp-controller="Brand" asp-action="Index" class="btn btn-secondary">Back to Homepage</a> ||
+	<a asp-action="GetAllCars" class="btn btn-secondary">Get All Cars</a> ||
+<a asp-action="AddCar" class="btn btn-secondary">Add Car</a> 
+</p>

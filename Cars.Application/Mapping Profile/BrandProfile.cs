@@ -13,7 +13,7 @@ namespace Cars.Application.Mapping_Profile
                .ForMember(dest => dest.Id, opt => opt.Ignore()); // Ignore Id during mapping from command to entity
             CreateMap<Brand, BrandGetDto>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dest => dest.ModelName, opt => opt.MapFrom(src => src.BrandName))
+                .ForMember(dest => dest.BrandName, opt => opt.MapFrom(src => src.BrandName))
                 .ForMember(dest => dest.Country, opt => opt.MapFrom(src => src.Country));
             CreateMap<UpdateBrandCommand, Brand>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))

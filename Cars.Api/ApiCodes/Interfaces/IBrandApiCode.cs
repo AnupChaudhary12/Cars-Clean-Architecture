@@ -13,6 +13,7 @@ namespace Cars.Api.ApiCodes.Interfaces
         Task<IResult> DeleteBrand(IMediator mediator, int id);
         Task<IResult> UpdateBrand(IMediator mediator,UpdateBrandCommand updateBrand);
         Task<IResult> GetBrandById(IMediator mediator, int id);
+        Task<IResult> GetCarsByBrandId(IMediator mediator, int brandId);
 
     }
 }

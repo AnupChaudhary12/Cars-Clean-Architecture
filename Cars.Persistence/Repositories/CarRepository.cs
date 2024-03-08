@@ -12,6 +12,23 @@ namespace Cars.Persistence.Repositories
         {
             _dbContext = dbContext;
         }
+
+        public void DetachCarEntity(Car car)
+        {
+            var entry = _dbContext.Entry(car);
+            entry.State = EntityState.Detached;
+        }
+
+        public async Task<Brand> GetBrandByCarId(int carId)
+        {
+            var brandByCarId = await _dbContext.Cars.Include(b => b.Brand).FirstOrDefaultAsync(c=>c.Id == carId);
+            if (brandByCarId == null)
+            {
+                return null;
+            }
+            return brandByCarId.Brand;
+        }
+
         public async Task<bool> IsCarModelUnique(string carModel)
         {
             return await _dbContext.Cars.AnyAsync(c=>c.CarModel==carModel) == false;

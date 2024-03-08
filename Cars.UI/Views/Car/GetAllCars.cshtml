@@ -1,0 +1,94 @@
+﻿@model List<Cars.Application.Contracts.DTOs.CarGetDto>;
+@{
+    ViewData["Title"] = "GetAllCars";
+}
+<h2>
+    @ViewData["Title"]
+</h2>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .button-link {
+        display: inline-block;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+        .button-link:hover {
+            background-color: #0056b3;
+            color: black;
+        }
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Car Model Name</th>
+            <th>Color</th>
+            <th>Tyre Count</th>
+            <th>Number Plate</th>
+            <th>Brand Id</th>
+            <th>Get Car Details</th>
+            <th>Update Car</th>
+            <th>Delete Car</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model)
+        {
+            <tr>
+                <td>@car.Id</td>
+                <td>@car.CarModel</td>
+                <td>@car.Color</td>
+                <td>@car.TyreCount</td>
+                <td>@car.NumberPlate</td>
+                <td>@car.BrandId</td>
+                <td>
+                    <a href="@Url.Action("GetCarById","Car",new{id=car.Id})">Get Car Details</a>
+                </td>
+                <td>
+                    <a href="@Url.Action("UpdateCar","Car",new{id=car.Id})"> Update Car</a>
+                </td>
+                <td>
+                    <a href="@Url.Action("DeleteCar","Car",new{id=car.Id})"> Delete Car</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<p>
+    <a asp-controller="Brand" asp-action="Index" class="btn btn-secondary">Back to Homepage</a>
+</p>
+<br />
+<p>
+    <a asp-controller="Car" asp-action="GetBrandOfCar" asp-route-id="@Model.FirstOrDefault()?.Id" class="btn btn-secondary">Get Brand Details By Car Id</a>
+</p>
+
+<br />
+<p>
+    <a asp-controller="Car" asp-action="AddCar" class="btn btn-outline-secondary">Create New Car</a>
+</p>
+<p>
+    <a asp-controller="Brand" asp-action="GetAllBrands" class="btn btn-secondary">Get All Brands</a>
+</p>

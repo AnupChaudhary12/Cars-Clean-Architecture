@@ -16,16 +16,15 @@ namespace Cars.Application.Features.Command.CreateCar
         public async Task<int> Handle(CreateCarCommand request, CancellationToken cancellationToken)
         {
             var validator = new CarCreateDtoValidator(_unitOfWork);
-            var validatorResult = await validator.ValidateAsync(request.CreateCarsDto);
+            var validatorResult = await validator.ValidateAsync(request);
             if (!validatorResult.IsValid)
             {
                 throw new ValidationExceptions("Invalid car", validatorResult);
             }
 
 
-            // if we are using DTo then we have to write like this
-            var carDto = request.CreateCarsDto;            
-            var car = _mapper.Map<Car>(carDto);
+            // if we are using DTo then we have to write like this           
+            var car = _mapper.Map<Car>(request);
 
             // if we are not using DTo then we have to write like this
             //var car = _mapper.Map<Car>(request);

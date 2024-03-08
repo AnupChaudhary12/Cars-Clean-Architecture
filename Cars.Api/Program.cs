@@ -53,6 +53,8 @@ app.UseHttpsRedirection();
 var brandApiCode = new BrandApiCode();
 app.MapBrandsApi(brandApiCode);
 
+var carApiCode = new CarApiCode();
+app.MapCarsApi(carApiCode);
 
 
 app.Run();
