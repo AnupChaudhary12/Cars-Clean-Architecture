@@ -1,3 +1,4 @@
+using Asp.Versioning;
 using Cars.Api.ApiCodes.Implementations;
 using Cars.Api.ApiCodes.Interfaces;
 using Cars.Api.Extensions;
@@ -29,6 +30,20 @@ builder.Host.UseSerilog();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// To show which version is supported and which is depreciated using options
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new ApiVersion(1);
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    // what if we want to use version type like media type , header or httproute parameter
+    //options.ApiVersionReader = new QueryStringApiVersionReader();
+    //options.ApiVersionReader = new HeaderApiVersionReader("api-version");
+    //options.ApiVersionReader = new MediaTypeApiVersionReader();
+    //if we want to use the version from the url itself
+    //options.ApiVersionReader = new UrlSegmentApiVersionReader();
+
+});
 
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureService(builder.Configuration);

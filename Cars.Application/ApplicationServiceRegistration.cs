@@ -1,4 +1,6 @@
 ﻿
+using FluentValidation.AspNetCore;
+
 namespace Cars.Application
 {
     /// <summary>
@@ -14,6 +16,7 @@ namespace Cars.Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddFluentValidationAutoValidation();
             return services;
         }
     }
