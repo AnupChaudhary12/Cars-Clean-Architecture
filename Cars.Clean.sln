@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cars.Infrastructure", "Cars
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cars.Api", "Cars.Api\Cars.Api.csproj", "{702C3417-9C2C-4AC8-993A-7E2C0D560119}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cars.UI", "Cars.UI\Cars.UI.csproj", "{2FAD91D6-15DB-409D-A4DE-A73BFE45C18A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cars.UI", "Cars.UI\Cars.UI.csproj", "{2FAD91D6-15DB-409D-A4DE-A73BFE45C18A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
