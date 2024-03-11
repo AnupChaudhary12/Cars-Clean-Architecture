@@ -17,6 +17,7 @@ namespace Cars.Api.Extensions
                 .HasApiVersion(1) // Shows the version 1 as supported
                 .HasApiVersion(2, 0) // Shows the version 2 as supported
                 .ReportApiVersions() // shows the version in the response header ans shows which version is supported
+                //.HasDeprecatedApiVersion(1)
                 .Build();
 
             // if we want api version inside the endpoint itself
